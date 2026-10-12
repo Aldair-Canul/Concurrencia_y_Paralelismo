@@ -16,6 +16,8 @@ public class Act_Stream {
     public static void escribir_mucho( ) {
 
       try (OutputStream fos = new FileOutputStream("data.txt");
+        //Probar con la clase Object.  
+        //ObjectOutputStream oos = new ObjectOutputStream(fos);
          BufferedOutputStream bos = new BufferedOutputStream(fos);
       ) {
         
