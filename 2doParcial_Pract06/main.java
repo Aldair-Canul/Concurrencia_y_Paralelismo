@@ -6,10 +6,8 @@ import java.util.logging.Logger;
 
 public class main {
     public static void main(String[] args) {
-        try {
-            Act_Stream.escribir();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+      Act_Stream.escribir();
+
     }
 }

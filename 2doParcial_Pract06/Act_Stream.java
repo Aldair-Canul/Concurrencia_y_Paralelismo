@@ -2,16 +2,19 @@
 import java.io.*;
 
 public class Act_Stream {
-    public static void escribir( ) throws IOException {
-        OutputStream fos = new FileOutputStream("data.txt", true);
-        fos.write(0x31);
-        fos.write(50);
-        fos.write(0x0A);
+    public static void escribir( ) {
 
-        fos.flush();
-        fos.close();
+      try (OutputStream fos = new FileOutputStream("data.txt");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+      ) {
+        oos.writeUTF("Hello World");
+      } catch (Exception e) {
+            throw new RuntimeException(e);
+      }
+        
     }
 
+    
     public static void leer() throws IOException {
         InputStream fis = new FileInputStream("data.txt");
         int byteFile;
