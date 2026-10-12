@@ -13,6 +13,26 @@ public class Act_Stream {
       }
         
     }
+    public static void escribir_mucho( ) {
+
+      try (OutputStream fos = new FileOutputStream("data.txt");
+         BufferedOutputStream bos = new BufferedOutputStream(fos);
+      ) {
+        
+          
+
+          for (int i = 0; i < 10_000_000; i++) {
+            bos.write(i);
+          }
+
+
+
+          System.out.println("Duración: " + duracionNs + " ns (" + duracionMs + " ms)");
+      } catch (Exception e) {
+            throw new RuntimeException(e);
+      }
+        
+    }
 
     
     public static void leer() throws IOException {
